@@ -11,7 +11,7 @@ ENV PIP_NO_CACHE_DIR=1 \
     PYTHONUNBUFFERED=1 \
     PYTHONDONTWRITEBYTECODE=1
 
-RUN sudo hostname $username-hikkahost
+RUN su && hostname $username-hikkahost
 
 # Packets
 RUN apt update && apt install -y \
