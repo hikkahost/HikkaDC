@@ -29,7 +29,7 @@ RUN apt-get update && apt-get install -y \
     && rm -rf /var/lib/apt/lists/*
 
 RUN mkdir /data
-COPY . /data/Hikka
+RUN cd /data && git clone -b v1.5.3 https://github.com/hikariatama/Hikka
 WORKDIR /data/Hikka
 
 RUN pip install --no-warn-script-location --no-cache-dir -U -r requirements.txt
