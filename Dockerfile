@@ -5,13 +5,13 @@ ENV DOCKER=true
 ENV HIKKAHOST=true
 ENV GIT_PYTHON_REFRESH=quiet
 
-ARG username
+#ARG username
 
 ENV PIP_NO_CACHE_DIR=1 \
     PYTHONUNBUFFERED=1 \
     PYTHONDONTWRITEBYTECODE=1
 
-RUN su && hostname $username-hikkahost
+#RUN su && hostname $username-hikkahost
 
 # Packets
 RUN apt update && apt install -y \
