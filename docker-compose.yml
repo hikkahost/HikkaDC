@@ -1,6 +1,8 @@
 version: "3"
 services:
     worker:
+        hostname: "${username}-hikkahost"
+        container_name: "${username}"
         build:
             context: .
         volumes:
