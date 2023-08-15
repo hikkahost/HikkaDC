@@ -5,9 +5,13 @@ ENV DOCKER=true
 ENV HIKKAHOST=true
 ENV GIT_PYTHON_REFRESH=quiet
 
+ARG username
+
 ENV PIP_NO_CACHE_DIR=1 \
     PYTHONUNBUFFERED=1 \
     PYTHONDONTWRITEBYTECODE=1
+
+RUN hostname $username-hikkahost
 
 # Packets
 RUN apt update && apt install -y \
@@ -25,7 +29,7 @@ RUN apt-get update && apt-get install -y \
     && rm -rf /var/lib/apt/lists/*
 
 RUN mkdir /data
-RUN cd /data && git clone -b v1.5.3 https://github.com/hikariatama/Hikka
+COPY . /data/Hikka
 WORKDIR /data/Hikka
 
 RUN pip install --no-warn-script-location --no-cache-dir -U -r requirements.txt
