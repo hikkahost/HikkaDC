@@ -1,7 +1,6 @@
 version: "3"
 services:
     worker:
-        container_name: "hikka-worker"
         build:
             context: .
         volumes:
@@ -11,6 +10,14 @@ services:
         command: "python -m hikka"
         ports:
             - "${EXTERNAL_PORT:-8080}:8080"
+        deploy:
+          resources:
+            limits:
+              cpus: '0.1'
+              memory: 500M
+            reservations:
+              cpus: '0.01'
+              memory: 200M
 
 volumes:
     worker:
