@@ -30,7 +30,7 @@ RUN mkdir /home/user
 
 #COPY . /home/user/Hikka
 RUN mkdir /data
-RUN cd /data && git clone -b v1.5.3 https://github.com/hikariatama/Hikka
+COPY . /data/Hikka
 WORKDIR /data/Hikka
 
 RUN pip install --no-warn-script-location --no-cache-dir -U -r requirements.txt
